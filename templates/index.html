@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #e3f2fd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .jumbotron {
+            background-image: url('bg.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 15px; /* Tambahkan padding horizontal */
+            margin-top: 56px; /* Tinggi navbar, sesuaikan dengan kebutuhan Anda */
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            max-width: 200px;
+            border: 5px solid #fff;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .about-me {
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-img {
+                max-width: 150px;
+            }
+        }
+
+        .portfolio-card {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        .portfolio-card-img {
+            width: 100%;
+            height: 200px; /* Tetapkan tinggi tetap */
+            object-fit: cover; /* Menjaga aspek gambar */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .portfolio-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .portfolio-card-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+
+        .portfolio-card-caption h6 {
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .portfolio-card-caption p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .portfolio-card:hover .portfolio-card-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-card:hover .portfolio-card-overlay {
+            opacity: 1;
+        }
+
+        .nav-link:hover {
+            color: #007bff;
+        }
+
+        .col-md-4 {
+            margin-bottom: 30px;
+        }
+
+        .social-icon {
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                DWI RAHMA FIRMANSYAH
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" aria-current="page" href="#beranda">Home</a>
+                    <a class="nav-link" href="#tentang">About</a>
+                    <a class="nav-link" href="#kontak">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron" id="beranda">
+            <img src="{{url_for('static', filename='foto.jpg') }}" alt="Profile Picture" class="profile-img">
+            <h1 class="display-4">Dwi Rahma Firmansyah</h1>
+            <p class="lead">Mahasiswa | Universitas Stikubank</p>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="section-title mb-6 font" id="tentang">About Me</h1>
+        <p>saya seorang mahasiswa semester 7 jurusan teknik informatika yang sedang berkuliah di Universitas Stikubank.
+            Saya tinggal di kota semarang
+            bersama keluarga saya. kegiatan saya saat ini sedang mengikuti studi independent di learning x dan belajar
+            fullstack web programing
+        </p>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="section-title mb-6 font">Portfolio</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#" class="portfolio-card">
+                    <img src="{{ url_for('static', filename='HOME.png') }}" class="portfolio-card-img"
+                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <span class="portfolio-card-overlay">
+                        <span class="portfolio-card-caption">
+                            <h6>Aplikasi Absensi PT. Tirta Kurnia Jasatama</h6>
+                            <p class="font-weight-normal">Project Magang</p>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="portfolio-card">
+                    <img class="portfolio-card-img" src="{{ url_for('static', filename='sertif1.jpg') }}"
+                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <span class="portfolio-card-overlay">
+                        <span class="portfolio-card-caption">
+                            <h6>Sertifikat</h6>
+                            <p class="font-weight-normal">Pelatihan menyusun perencanaan tenaga kerja</p>
+                        </span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="#" class="portfolio-card">
+                    <img class="portfolio-card-img" src="{{ url_for('static', filename='sertif2.jpg') }}"
+                        alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    <span class="portfolio-card-overlay">
+                        <span class="portfolio-card-caption">
+                            <h6>sertif2</h6>
+                            <p class="font-weight-normal">Pelatihan mengelola jaringan komputer </p>
+                        </span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="section-title mb-6 font" id="kontak">Contact Me</h1>
+        <div class="social-icons">
+            <a href="https://wa.me/6288227927846" target="_blank" class="social-icon">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/dwifirmnsyh" target="_blank" class="social-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://id.linkedin.com/in/dwi-rahma-firmansyah-065386214" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 DWI RAHMA FIRMANSYAH</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
